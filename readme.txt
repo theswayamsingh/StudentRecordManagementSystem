@@ -1,7 +1,7 @@
 Hi!
 
 This is Swayam Singh, 
-this software is designed to manage the records
+this software is designed to manage the data
 of students, including ledger and marksheet.
 
 This is develoved by using Python framework (tkinter) and
@@ -10,9 +10,8 @@ matplotlib, pillow, tkinter, and sqlalchemy).
 
 For any query or feedback, contact on:
 
-1) Instagram : @theinfinityofficial OR @s4m_r4jput
-2) Gmail : theinfinityoffici4l@gmail.com
-3) Github : s4m-singh
+1) Gmail : theswayamsingh@gmail.com
+3) Github : theswayamsingh
 
 Thank You :)
 
