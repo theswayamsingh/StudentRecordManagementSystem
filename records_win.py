@@ -4,6 +4,7 @@ from tkinter import messagebox, filedialog
 from tkinter import ttk
 from PIL import ImageTk, Image
 from sqlalchemy import create_engine as ce
+from sqlalchemy import text
 import os,sys
 
 # Getting required files.
@@ -57,10 +58,10 @@ def main():
                 return             # The code will not run forward.
 
             try:
-                connection.execute('create database srms_records')
-                connection.execute('use srms_records')
+                connection.execute(text('create database srms_records'))
+                connection.execute(text('use srms_records'))
             except:
-                connection.execute('use srms_records')
+                connection.execute(text('use srms_records'))
 
             connection.close()
             engine = ce("mysql+pymysql://{}:{}@{}/srms_records".format(user, password, host))
@@ -74,12 +75,12 @@ def main():
                     return
 
                 try:
-                    connection.execute("CREATE TABLE {} (Student_ID varchar(10) Primary Key, Student_Name varchar(50) ,Class varchar(10), Gender varchar(20), Phone varchar(10), Email varchar(50), Address varchar(100))".format(tb))
+                    connection.execute(text("CREATE TABLE {} (Student_ID varchar(10) Primary Key, Student_Name varchar(50) ,Class varchar(10), Gender varchar(20), Phone varchar(10), Email varchar(50), Address varchar(100))".format(tb)))
                     tablewin.destroy()
                     btn_state()
                     messagebox.showinfo('Table Created.', 'Table has been created successfully.')
                 except:
-                    info=connection.execute('desc {}'.format(tb)).fetchall()
+                    info=connection.execute(text('desc {}'.format(tb))).fetchall()
                     if info!=[('Student_ID', 'varchar(10)', 'NO', 'PRI', None, ''), ('Student_Name', 'varchar(50)', 'YES', '', None, ''), ('Class', 'varchar(10)', 'YES', '', None, ''), ('Gender', 'varchar(20)', 'YES', '', None, ''), ('Phone', 'varchar(10)', 'YES', '', None, ''), ('Email', 'varchar(50)', 'YES', '', None, ''), ('Address', 'varchar(100)', 'YES', '', None, '')]:
                         messagebox.showerror('Invalid Table!', 'The description of the table does not match with the Treeview.')
                         return
@@ -100,7 +101,7 @@ def main():
             l1 = Label(tablewin, text='Table', font=('Agency FB', 31, 'bold'), bg='cornflowerblue', relief=SOLID, borderwidth=2, width=12)
             l1.place(x=125, y=30)
 
-            tables = connection.execute('show tables').fetchall()
+            tables = connection.execute(text('show tables')).fetchall()
             tables_list = []
             for i in tables:
                 table = i[0]
@@ -187,7 +188,8 @@ def main():
                     return
 
             try:
-                connection.execute('insert into {} values (%s, %s, %s, %s, %s, %s, %s)'.format(tb), (id, name, Class, gender, phone, email, address))
+                connection.execute(text("insert into {} values ('{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(tb, id, name, Class, gender, phone, email, address)))
+                connection.commit()
                 res = messagebox.askyesno('Record added successfully!', 'Record with ID {} and Name {} added successfully. Do you want to clear the fill-up form?'.format(id, name), parent=addtop)
                 if res == True:
                     idval.set('')
@@ -306,7 +308,8 @@ def main():
                 return
             else:
                 try:
-                    connection.execute("update {} set Student_ID=%s, Student_Name=%s, Class=%s, Gender=%s, Phone=%s,Email=%s,Address=%s where Student_ID=%s".format(tb), (new_id, new_name, new_class, new_gender, new_phone, new_email, new_address, cur_id))
+                    connection.execute(text("update {} set Student_ID='{}',Student_Name='{}',Class='{}',Gender='{}',Phone='{}',Email='{}',Address='{}' where Student_ID='{}'".format(tb, new_id, new_name, new_class, new_gender, new_phone, new_email, new_address, cur_id)))
+                    connection.commit()
                     top.destroy()
                     messagebox.showinfo('Successfully modified!', 'The data has been successfully updated.')
                 except:
@@ -415,7 +418,7 @@ def main():
             val_ = entry.get()
             choice = combo.get()
             tree.delete(*tree.get_children())
-            datas = connection.execute("select * from {} where {}='{}'".format(tb, choice, val_)).fetchall()
+            datas = connection.execute(text("select * from {} where {}='{}'".format(tb, choice, val_))).fetchall()
             if not datas:
                 messagebox.showinfo('Info', "No record found with {} as '{}'.".format(choice, val_), parent=s_top)
                 return
@@ -468,7 +471,8 @@ def main():
                     id_ = selection[0]
 
                     tree.delete(child)
-                    connection.execute("delete from {} where Student_ID='{}'".format(tb, id_))
+                    connection.execute(text("delete from {} where Student_ID='{}'".format(tb, id_)))
+                    connection.commit()
 
                 if len(selections)==1:
                     messagebox.showinfo('Done!', 'The selected record was successfully deleted.')
@@ -477,7 +481,7 @@ def main():
 
     def refresh():
         tree.delete(*tree.get_children())
-        datas=connection.execute('select * from {}'.format(tb)).fetchall()
+        datas=connection.execute(text('select * from {}'.format(tb))).fetchall()
         for i in datas:
             record = [i[0], i[1], i[2], i[3], i[4], i[5], i[6]]
             tree.insert('', END, values=record)
@@ -509,7 +513,8 @@ def main():
     def clear():
         res=messagebox.askyesnocancel('Confirm Delete.', 'Are you sure you want to delete all the records from table {} in database srms_records?'.format(tb))
         if res==True:
-            connection.execute('Delete from {}'.format(tb))
+            connection.execute(text('Delete from {}'.format(tb)))
+            connection.commit()
             tree.delete(*tree.get_children())
             messagebox.showinfo('Done', 'The records are successfully deleted.')
 
@@ -631,8 +636,8 @@ def main():
     # Backbutton.
     def back():
         root.destroy()
-        import main_win
-        main_win.main()
+        import home_screen
+        home_screen.main()
     back_icon = ImageTk.PhotoImage(Image.open(back_icon_path))
     back_btn = Button(root, image=back_icon, bg='Dodgerblue4', border=0, activebackground='DodgerBlue4', command=back)
     back_btn.place(x=5, y=5)

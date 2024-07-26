@@ -1,12 +1,13 @@
 import numpy as np
-import pandas as pd
-from tkinter import *                         # pip install future (in pycharm).
+import pandas as pd                           # pip install pandas
+from tkinter import *                         # pip install future (in pycharm)
 from tkinter import messagebox, filedialog
 from tkinter import ttk
-from PIL import ImageTk, Image                # pip install pillow.
+from PIL import ImageTk, Image                # pip install pillow
 from sqlalchemy import create_engine as ce
+from sqlalchemy import text
 import os, sys, ast
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt               # pip install matplotlib
 
 # Getting Required Files.
 
@@ -51,7 +52,7 @@ def main():
 
     root = Tk()
     root.title('Marksheet Management')
-    root.geometry('1410x650+50+100')
+    root.geometry('1410x650+10+100')
     root.resizable(False, False)
     root.iconbitmap(main_win_icon_path)
     root.config(bg='DodgerBlue4')
@@ -107,9 +108,11 @@ def main():
 
             try:
                 if Class<=10:
-                    connection.execute('insert into {} values (%s, %s, %s, %s, %s, %s, %s, %s)'.format(tb), (roll_no, name, sub1_marks, sub2_marks, sub3_marks, sub4_marks, sub5_marks, sub6_marks))
+                    connection.execute(text("insert into {} values ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(tb, roll_no, name, sub1_marks, sub2_marks, sub3_marks, sub4_marks, sub5_marks, sub6_marks)))
+                    connection.commit()
                 elif Class>10:
-                    connection.execute('insert into {} values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'.format(tb), (roll_no, name, sub1_marks, sub2_marks, sub3_marks, sub4_marks, op_sub, sub5_marks, add_sub, sub6_marks))
+                    connection.execute(text("insert into {} values ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(tb, roll_no, name, sub1_marks, sub2_marks, sub3_marks, sub4_marks, op_sub, sub5_marks, add_sub, sub6_marks)))
+                    connection.commit()
                 res = messagebox.askyesno('Record added successfully!', "Record with Roll No. '{}' and Name '{}' added successfully. Do you want to clear the fill-up form?".format(roll_no, name), parent=addtop)
                 if res == True:
                     rollval.set('')
@@ -360,11 +363,13 @@ def main():
 
             try:
                 if Class<=10:
-                    connection.execute("update {} set Roll_No=%s, Student_Name=%s, Science=%s, Maths=%s, Social=%s, English=%s, Hindi=%s, Computer=%s where Roll_No=%s".format(tb), (new_roll, new_name, new_sub1, new_sub2, new_sub3, new_sub4, new_sub5marks, new_sub6marks, cur_roll))
+                    connection.execute(text("update {} set Roll_No='{}', Student_Name='{}', Science='{}', Maths='{}', Social='{}', English='{}', Hindi='{}', Computer='{}' where Roll_No='{}'".format(tb, new_roll, new_name, new_sub1, new_sub2, new_sub3, new_sub4, new_sub5marks, new_sub6marks, cur_roll)))
+                    connection.commit()
                     top.destroy()
                     messagebox.showinfo('Successfully modified!', 'The data has been successfully updated.')
                 elif Class>10:
-                    connection.execute("update {} set Roll_No=%s, Student_Name=%s, {}=%s, {}=%s, {}=%s, English=%s, Op_Sub=%s, Op_Marks=%s, Add_Sub=%s, Add_Marks=%s where Roll_No=%s".format(tb, sub1, sub2, sub3), (new_roll, new_name, new_sub1, new_sub2, new_sub3, new_sub4, new_sub5name, new_sub5marks, new_sub6name, new_sub6marks, cur_roll))
+                    connection.execute(text("update {} set Roll_No='{}', Student_Name='{}', {}='{}', {}='{}', {}='{}', English='{}', Op_Sub='{}', Op_Marks='{}', Add_Sub='{}', Add_Marks='{}' where Roll_No='{}'".format(tb, new_roll, new_name, sub1, new_sub1, sub2, new_sub2, sub3, new_sub3, new_sub4, new_sub5name, new_sub5marks, new_sub6name, new_sub6marks, cur_roll)))
+                    connection.commit()
                     top.destroy()
                     messagebox.showinfo('Successfully modified!', 'The data has been successfully updated.')
 
@@ -628,7 +633,7 @@ def main():
             val_ = entry.get()
             choice = combo.get()
             tree.delete(*tree.get_children())
-            datas = connection.execute("select * from {} where {}='{}'".format(tb, choice, val_)).fetchall()
+            datas = connection.execute(text("select * from {} where {}='{}'".format(tb, choice, val_))).fetchall()
             if not datas:
                 messagebox.showinfo('Info', "No record found with {} as '{}'.".format(choice, val_), parent=s_top)
                 return
@@ -672,7 +677,7 @@ def main():
 
     def refresh():
         tree.delete(*tree.get_children())
-        datas=connection.execute('select * from {}'.format(tb)).fetchall()
+        datas=connection.execute(text('select * from {}'.format(tb))).fetchall()
         for i in datas:
             if Class<=10:
                 record = [i[0], i[1], i[2], i[3], i[4], i[5], i[6], i[7]]
@@ -703,7 +708,8 @@ def main():
                     roll = record[0]
 
                     tree.delete(child)
-                    connection.execute("delete from {} where Student_ID='{}'".format(tb, roll))
+                    connection.execute(text("delete from {} where Student_ID='{}'".format(tb, roll)))
+                    connection.commit()
 
                 if len(selections) == 1:
                     messagebox.showinfo('Done!', 'The selected record was successfully deleted.')
@@ -713,7 +719,8 @@ def main():
     def clear():
         res=messagebox.askyesnocancel('Confirm Delete.', 'Are you sure you want to delete all the records from table {} in database srms_marksheet?'.format(tb))
         if res==True:
-            connection.execute('Delete from {}'.format(tb))
+            connection.execute(text('Delete from {}'.format(tb)))
+            connection.commit()
             tree.delete(*tree.get_children())
             messagebox.showinfo('Done', 'The records are successfully deleted.')
 
@@ -860,7 +867,7 @@ def main():
             win.mainloop()
 
     def plot_all():
-        datas = connection.execute('select * from {}'.format(tb)).fetchall()
+        datas = connection.execute(text('select * from {}'.format(tb))).fetchall()
 
         # Checking for any empty value.
         for tup in datas:
@@ -1089,8 +1096,8 @@ def main():
     def back():
         connection.close()
         root.destroy()
-        import main_win
-        main_win.main()
+        import home_screen
+        home_screen.main()
     back_icon = ImageTk.PhotoImage(Image.open(back_icon_path))
     back_btn = Button(root, image=back_icon, bg='DodgerBlue4', border=0, activebackground='steelblue', command=back)
     back_btn.place(x=5, y=5)

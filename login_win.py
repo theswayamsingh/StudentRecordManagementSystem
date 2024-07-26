@@ -14,6 +14,9 @@ if getattr(sys, 'frozen', False):
     users_text_file = os.path.join(sys._MEIPASS, 'resources', 'users.txt')
     user_val_text_file = os.path.join(sys._MEIPASS, 'resources', 'user_val.txt')
     sql_text_file = os.path.join(sys._MEIPASS, 'resources', 'sql_connection.txt')
+
+    admins_users_db_path = ('c:/Program Files/Common Files/admins_users.db')
+
 else:
     img = Image.open(os.path.join("resources", "login.png"))
     close_icon_path = os.path.join('resources', 'close.png')
@@ -25,12 +28,14 @@ else:
     user_val_text_file = os.path.join('resources', 'user_val.txt')
     sql_text_file = os.path.join('resources', 'sql_connection.txt')
 
+    admins_users_db_path = ('admins_users.db')
 
 # Connecting to the database where users details will be stored.
-connector = sqlite3.connect('c:/Program Files/Common Files/admins_users.db')
+connector = sqlite3.connect(admins_users_db_path)
 connector.execute(
     "CREATE TABLE IF NOT EXISTS admins_users (S_No INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, Username TEXT, Password TEXT, Designation TEXT)"
 )
+connector.commit()
 
 datas = connector.execute('select * from admins_users').fetchall()
 if not datas:
@@ -69,7 +74,7 @@ def main():
 
     # Login window.
     login_win = Tk()
-    login_win.geometry('925x500+300+180')
+    login_win.geometry('925x500+260+180')
     login_win.resizable(False, False)
     login_win.overrideredirect(True)
     login_win.iconbitmap(main_win_icon_path)
@@ -162,8 +167,8 @@ def main():
                     file.close()
 
                     login_win.destroy()
-                    import main_win
-                    main_win.main()
+                    import home_screen
+                    home_screen.main()
                     return
 
             file = open(admins_text_file, 'r')
@@ -177,8 +182,8 @@ def main():
                 file.close()
 
                 login_win.destroy()
-                import main_win
-                main_win.main()
+                import home_screen
+                home_screen.main()
             else:
                 messagebox.showwarning('Login Failed', 'Invalid username and password.')
 
@@ -193,7 +198,7 @@ def main():
 
         # Signup option.
         b2=Button(f1,width=6,text='Sign up', font=('Arial Narrow', 15, 'bold'), border=0,bg='slateblue4',fg='#ff4f5a',
-                  activebackground='slateblue4', activeforeground='white',command=signup_win)
+                activebackground='slateblue4', activeforeground='white',command=signup_win)
         b2.place(x=510,y=395)
 
     def signup_win():
@@ -212,7 +217,7 @@ def main():
 
         # Heading.
         Label(f1, text="Sign up", fg='#ff4f5a', bg='slateblue4',
-              font=('Agency FB', 35, 'bold')).place(x=390, y=85)
+            font=('Agency FB', 35, 'bold')).place(x=390, y=85)
 
         # Username Entry Box.
 
@@ -329,18 +334,18 @@ def main():
                 file.write(str([key, val]))
                 file.close()
 
-                connector = sqlite3.connect('c:/Program Files/Common Files/admins_users.db')
+                connector = sqlite3.connect(admins_users_db_path)
                 connector.execute("insert into admins_users (Username, Password, Designation) values (?, ?, ?)", (key, val, 'Guest'))     # Adding user to the table.
                 connector.commit()
                 connector.close()
 
                 login_win.destroy()
-                import main_win
-                main_win.main()
+                import home_screen
+                home_screen.main()
 
         # Signup Button.
         Button(f1, width=35, pady=7, text='Sign up', font=('Arial Narrow', 13), bg='#ff4f5a', fg='white'
-               ,relief=RAISED, borderwidth=3, command=signupcmd).place(x=312, y=330)
+            ,relief=RAISED, borderwidth=3, command=signupcmd).place(x=312, y=330)
         login_win.bind('<Return>', lambda event: signupcmd())
 
         # Already have account?
