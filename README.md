@@ -1,4 +1,4 @@
-# 🎵 Student Record Management System
+# 🌀 Student Record Management System
 
 A desktop application for efficiently managing student academic records, built using Python’s Tkinter framework with backend connectivity to a MySQL database.
 
@@ -16,8 +16,7 @@ A desktop application for efficiently managing student academic records, built u
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/theswayamsingh/srocksmusic_assignment.git
-   cd srocksmusic_assignment
+   git clone https://github.com/theswayamsingh/StudentRecordManagementSystem
    ```
 
 2. **Install dependencies**
@@ -43,15 +42,7 @@ A desktop application for efficiently managing student academic records, built u
 
 ---
 
-## 🧪 Testing
-
-To run the tests:
-
-```bash
-flutter test
-```
-
-# Screenshots are available under screenshots folder.
+## Screenshots are available under screenshots folder.
 
 ## 👨‍💻 Author
 
