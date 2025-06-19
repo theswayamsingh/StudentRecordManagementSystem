@@ -10,6 +10,23 @@ A desktop application for efficiently managing student academic records, built u
 - Emphasized error handling and data validation to ensure robust and accurate record keeping.
 - Designed with modular code structure to support future enhancements and scalability.
 
+<img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="35">&nbsp; ***Student Record Management System***
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+
+<table>
+  <tr>
+    <td width="50%">
+      <h3 align="center">Student Record Management System</h3>
+      <div align="center">
+        <a href="https://github.com/theswayamsingh/StudentRecordManagementSystem" target="_blank">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/screenshot (64).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/screenshot (65).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+        </a>
+      </div>
+    </td>
+  </tr>
+</table>
+
 ---
 
 ## 🛠️ Getting Started
@@ -41,7 +58,7 @@ A desktop application for efficiently managing student academic records, built u
 - Pillow
 ---
 
-### Screenshots are available under screenshots folder.
+## Screenshots are available under screenshots folder.
 
 ## 👨‍💻 Author
 
