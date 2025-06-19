@@ -8,7 +8,6 @@ A desktop application for efficiently managing student academic records, built u
 - Integrated Matplotlib to provide dynamic visualizations of performance trends, attendance, and other metrics.
 - Focused on building a clean and responsive interface for non-technical users such as school administrators.
 - Emphasized error handling and data validation to ensure robust and accurate record keeping.
-- Designed with modular code structure to support future enhancements and scalability.
 
 <img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="35">&nbsp; ***Student Record Management System***
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
@@ -80,8 +79,6 @@ A desktop application for efficiently managing student academic records, built u
 - PyMySQL
 - Pillow
 ---
-
-## Screenshots are available under screenshots folder.
 
 ## 👨‍💻 Author
 
