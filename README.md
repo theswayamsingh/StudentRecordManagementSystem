@@ -21,6 +21,30 @@ A desktop application for efficiently managing student academic records, built u
         <a href="https://github.com/theswayamsingh/StudentRecordManagementSystem" target="_blank">
           <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(64).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
           <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(65).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(66).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(67).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(68).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(69).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(70).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(71).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(72).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(73).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(74).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(75).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(76).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(77).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(78).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(79).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(80).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(81).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(82).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(83).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(84).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(85).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(86).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(87).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(88).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
+          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(89).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
         </a>
       </div>
     </td>
