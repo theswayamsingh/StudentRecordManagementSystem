@@ -33,16 +33,15 @@ A desktop application for efficiently managing student academic records, built u
 
 ## 📦 Dependencies
 
-- Tkinter
 - Numpy
 - Pandas
 - Matplotlib
 - SQLalchemy
-- PyMySQL 
-
+- PyMySQL
+- Pillow
 ---
 
-## Screenshots are available under screenshots folder.
+### Screenshots are available under screenshots folder.
 
 ## 👨‍💻 Author
 
