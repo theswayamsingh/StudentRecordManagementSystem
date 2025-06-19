@@ -26,7 +26,6 @@ A desktop application for efficiently managing student academic records, built u
           <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(68).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
           <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(69).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
           <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(70).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
-          <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(71).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
           <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(72).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
           <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(73).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
           <img src="https://github.com/theswayamsingh/StudentRecordManagementSystem/blob/main/screenshots/Screenshot%20(74).png" width="485" style="object-fit: cover;" alt="Student Record Management System">
